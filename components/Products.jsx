@@ -5,14 +5,13 @@ import RemoveBtn from "./RemoveBtn";
 import { HiPencilAlt } from "react-icons/hi";
 import { useState } from "react";
 
-export default function Product({ products, categories}) {
-
+export default function Product({ products, categories }) {
   const [selectedCategory, setSelectedCategory] = useState(null);
 
   const handleCategoryClick = (category) => {
     setSelectedCategory(category);
   };
-  
+
   return (
     <>
       <nav className="flex items-center mt-[-2%] bg-slate-800 px-8 py-3 text-white">
@@ -37,29 +36,46 @@ export default function Product({ products, categories}) {
         ),
       ].map(
         (type, index) =>
-          selectedCategory !== null && <button  onClick={() => handleCategoryClick(type)} key={index} className="mr-2 underline">{type}</button>
+          selectedCategory !== null && (
+            <button
+              onClick={() => handleCategoryClick(type)}
+              key={index}
+              className="mr-2 underline"
+            >
+              {type}
+            </button>
+          )
       )}
 
       {[
         ...new Set(
           products
             .filter(
-              (p) =>
-                selectedCategory === null || p.type === selectedCategory
+              (p) => selectedCategory === null || p.type === selectedCategory
             )
             .map((p) => p.os)
         ),
       ].map(
         (os, index) =>
-          selectedCategory !== null && <button  onClick={() => handleCategoryClick(os)} key={index} className="mr-2 underline">{os}</button>
+          selectedCategory !== null && (
+            <button
+              onClick={() => handleCategoryClick(os)}
+              key={index}
+              className="mr-2 underline"
+            >
+              {os}
+            </button>
+          )
       )}
-
-
 
       {products
         .filter(
-          (p) => selectedCategory === null || p.category  === selectedCategory || p.type === selectedCategory || p.os === selectedCategory 
-        ) 
+          (p) =>
+            selectedCategory === null ||
+            p.category === selectedCategory ||
+            p.type === selectedCategory ||
+            p.os === selectedCategory
+        )
         .map((p) => (
           <>
             <div
