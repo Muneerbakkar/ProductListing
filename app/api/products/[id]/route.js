@@ -16,3 +16,11 @@ export async function GET(request,{params}) {
   const product = await Product.findOne({_id:id});
   return NextResponse.json({product},{status:200});
 }
+
+export async function DELETE(request, { params }) {
+  const { id } = params;
+  await connectMongoDB();
+  await Product.findByIdAndRemove(id);
+  return NextResponse.json({ message: "Product deleted" }, { status: 200 });
+}
+
