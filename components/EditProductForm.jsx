@@ -32,7 +32,7 @@ export default function EditTopicForm({ id, name, category }) {
   };
 
   return (
-    <form className="flex flex-col gap-3">
+    <form className="flex flex-col gap-3 max-w-3xl mx-auto">
       <input
         onChange={(e) => setNewName(e.target.value)}
         value={newName}
