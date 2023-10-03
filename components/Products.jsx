@@ -74,7 +74,7 @@ export default function Product({ products, categories }) {
             selectedCategory === null ||
             p.category === selectedCategory ||
             p.type === selectedCategory ||
-            p.os === selectedCategory
+            p.os === selectedCategory 
         )
         .map((p) => (
           <>
