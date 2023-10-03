@@ -44,8 +44,7 @@ export default async function ProductList() {
 
   return (
     <>
-      {/* <Product products={products} categories={categories} /> */}
-      <div>hello</div>
+      <Product products={products} categories={categories} />
     </>
   );
 }
