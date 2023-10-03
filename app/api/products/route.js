@@ -17,7 +17,7 @@ export async function GET() {
 }
 
 export async function DELETE(request) {
-  console.log("deleting");
+  console.log("deleting1");
   const id = request.nextUrl.searchParams.get("id");
   await connectMongoDB();
   await Product.findByIdAndDelete(id);
