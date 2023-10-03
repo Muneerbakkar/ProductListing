@@ -5,6 +5,7 @@ import RemoveBtn from "./RemoveBtn";
 import { HiPencilAlt } from "react-icons/hi";
 import { useState } from "react";
 
+
 export default function Product({ products, categories }) {
   const [selectedCategory, setSelectedCategory] = useState(null);
 

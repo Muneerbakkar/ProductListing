@@ -1,9 +1,6 @@
 import connectMongoDB from "@/libs/mongodb";
 import Category from "@/model/category";
 
-
-
-
 import { NextResponse } from "next/server";
 
 

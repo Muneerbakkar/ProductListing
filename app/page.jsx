@@ -1,8 +1,10 @@
 import Product from "@/components/Products";
 
 const getProducts = async () => {
+const apiUrl = process.env.API_URL;
+
   try {
-    const res = await fetch("http://localhost:3000/api/products", {
+    const res = await fetch(`${apiUrl}/api/products` ,{
       cache: "no-store",
     });
 
@@ -13,13 +15,15 @@ const getProducts = async () => {
     return res.json();
   } catch (error) {
     console.log("Error loading products", error);
-    return { products: [] }; // Provide a default empty array
+    return { products: [] }; 
   }
 };
 
 const getCategories = async () => {
+  const apiUrl = process.env.API_URL;
+
   try {
-    const res = await fetch("http://localhost:3000/api/categories", {
+    const res = await fetch(`${apiUrl}/api/categories`, {
       cache: "no-store",
     });
 
@@ -30,7 +34,7 @@ const getCategories = async () => {
     return res.json();
   } catch (error) {
     console.log("Error loading categories", error);
-    return { categories: [] }; // Provide a default empty array
+    return { categories: [] }; 
   }
 };
 
@@ -40,7 +44,8 @@ export default async function ProductList() {
 
   return (
     <>
-      <Product products={products} categories={categories} />
+      {/* <Product products={products} categories={categories} /> */}
+      <div>hello</div>
     </>
   );
 }

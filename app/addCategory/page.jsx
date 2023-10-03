@@ -17,7 +17,7 @@ export default function AddProduct() {
     }
 
     try {
-      const res = await fetch("http://localhost:3000/api/categories", {
+      const res = await fetch("/api/categories", {
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -30,34 +30,6 @@ export default function AddProduct() {
         router.push("/");
       } else {
         throw new Error("Failed to create a category");
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  const submitType = async (e) => {
-    e.preventDefault();
-
-    if (!type) {
-      alert("All fields are required.");
-      return;
-    }
-
-    try {
-      const res = await fetch("http://localhost:3000/api/types", {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify({ type }),
-      });
-
-      if (res.ok) {
-        router.refresh();
-        router.push("/");
-      } else {
-        throw new Error("Failed to create a type");
       }
     } catch (error) {
       console.log(error);

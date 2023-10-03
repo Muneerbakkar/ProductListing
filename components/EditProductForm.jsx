@@ -13,7 +13,7 @@ export default function EditTopicForm({ id, name, category }) {
     e.preventDefault();
 
     try {
-      const res = await fetch(`http://localhost:3000/api/products/${id}`, {
+      const res = await fetch(`/api/products/${id}`, {
         method: "PUT",
         headers: {
           "content-type": "application/json",
